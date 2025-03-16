@@ -12,6 +12,7 @@
 <body>
     <script src="/js/cropper.min.js"></script>
     <link href="/css/style.css" rel="stylesheet" />
+    <script>loadDOM('/partials/NavBar.html')</script>
     <div class="my-container">
 
         <div>
@@ -44,7 +45,8 @@
                 </div>
                 <div class="flex items-start">
                     <div class="flex items-center h-5">
-                        <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required="">
+                        <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3
+                             focus:ring-blue-300" required="">
                     </div>
                     <div class="ml-3 text-sm">
                         <label for="terms" class="label-style">
@@ -54,7 +56,8 @@
                     </div>
                 </div>
 
-                <button  type="submit" class="btn-style ">Create an account</button>
+
+                <button type="submit" class="btn-style ">Create an account</button>
                 <p class="text-sm font-light text-white">
                     Already have an account? <a href="#" class="font-medium text-blue-600 hover:underline">Login here</a>
                 </p>

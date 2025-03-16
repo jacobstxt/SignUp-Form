@@ -1,14 +1,16 @@
 ﻿body {
-    padding-left: 36%;
-    padding-right: 36%;
     background-image: url('/images/light-background-hd-wallpaper-preview.jpg');
     background-size: cover; 
     background-position: center; 
+    margin-top:70px;
 }
 
-.my-container{
+
+.my-container {
+    padding-left: 36%;
+    padding-right: 36%;
     margin: 15% 20px 0 20px;
-    margin-top:4px;
+    margin-top: 4px;
 }
 @media only screen and (max-width: 1400px) {
 
@@ -18,14 +20,14 @@
 }
 
 @media only screen and (max-width: 1200px) {
-    body {
+    .my-container {
         padding-left: 30%;
         padding-right: 30%;
     }
 
 }
 @media only screen and (max-width: 992px){
-    body {
+    .my-container {
         padding-left: 20%;
         padding-right: 20%;
     }
@@ -178,3 +180,12 @@ p{
     .label-style:hover {
         color: #9ca3af; 
     }
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+}

@@ -49,7 +49,7 @@ formRegister.onsubmit = (e) => {
         }
     };
 
-    location.href = "/users.html";
+    loadDOM('/partials/Users.html')
 
     // Send request
     xhr.send(JSON.stringify(data));
