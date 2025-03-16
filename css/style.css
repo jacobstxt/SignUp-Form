@@ -2,7 +2,7 @@
     background-image: url('/images/light-background-hd-wallpaper-preview.jpg');
     background-size: cover; 
     background-position: center; 
-    margin-top:70px;
+    margin-top:75px;
 }
 
 
@@ -188,4 +188,12 @@ nav {
     left: 0;
     width: 100%;
     z-index: 1000; 
+}
+
+
+.UserContainer {
+    background-image: url('/images/light-background-hd-wallpaper-preview.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-top: 100px;
 }
