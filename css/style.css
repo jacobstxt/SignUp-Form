@@ -2,7 +2,7 @@
     background-image: url('/images/light-background-hd-wallpaper-preview.jpg');
     background-size: cover; 
     background-position: center; 
-    margin-top:75px;
+    margin-top:67px;
 }
 
 
@@ -192,8 +192,7 @@ nav {
 
 
 .UserContainer {
-    background-image: url('/images/light-background-hd-wallpaper-preview.jpg');
-    background-size: cover;
-    background-position: center;
     margin-top: 100px;
+    background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+    min-height: 90vh; 
 }
