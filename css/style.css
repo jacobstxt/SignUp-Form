@@ -196,3 +196,40 @@ nav {
     background: linear-gradient(to bottom right, #6a11cb, #2575fc);
     min-height: 90vh; 
 }
+
+
+.Container{
+    width:100%;
+    display:flex;
+}
+
+.NameAndEmailcont {
+    margin-left:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 350px;
+}
+
+
+    .NameAndEmailcont p {
+        margin: 0; 
+        font-size: 20px; 
+        color: #1f2937; 
+        line-height: 1.5; 
+    }
+
+
+
+.ButtonContainer{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    gap:10px;
+}
+
+button{
+    height:50px;
+    width:100px;
+}

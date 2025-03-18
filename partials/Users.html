@@ -11,7 +11,7 @@
 <body class="UserContainer">
     <script>loadDOM('/partials/NavBar.html')</script>
     <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mt-64">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Список користувачів</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Users List</h2>
         <div class="space-y-4" id="user-list">
             <!--//Insert users-->
         </div>
@@ -46,14 +46,15 @@
             users.forEach((user, index) => {
                 const userCard = document.createElement("div");
                 userCard.className = "flex items-center space-x-4 p-4 bg-gray-50 rounded-lg shadow";
-                userCard.innerHTML = `
-                        <div class="flex items-center justify-between space-x-4">
+                userCard.innerHTML =
+                `
+                        <div class="Container">
                             <img class="w-16 h-16 rounded-full" src="${user.avatar}" alt="${user.name}">
-                            <div class="flex-1">
-                                <p class="text-lg font-medium text-gray-900">${user.name}</p>
-                                <p class="text-gray-600">${user.email}</p>
+                            <div class="NameAndEmailcont">
+                                <p>${user.name}</p>
+                                <p>${user.email}</p>
                             </div>
-                            <div class="flex space-x-4 ml-auto">
+                            <div class="ButtonContainer">
                                 <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="updateUser(${index})">
                                     Edit
                                 </button>
@@ -62,7 +63,7 @@
                                 </button>
                             </div>
                         </div>
-                    `;
+                `;
                 userList.appendChild(userCard);
             });
         }
