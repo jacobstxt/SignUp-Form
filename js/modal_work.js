@@ -13,12 +13,7 @@ const formRegister = document.getElementById("formRegister");
 
 formRegister.onsubmit = (e) => {
     e.preventDefault(); //відмінити станартну повіденку форми
-    const formData = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        password: document.getElementById("password").value,
-        avatar: document.getElementById("avatar").src
-    }
+ 
 
     //const xhr = new XMLHttpRequest();
     //const url = "https://goose.itstep.click/api/Account/register"; //443 // Replace with your actual API URL
@@ -50,15 +45,44 @@ formRegister.onsubmit = (e) => {
     //};
  /*   xhr.send(JSON.stringify(data));*/
 
+
+ 
+    const emailInput = document.getElementById("email");
+    const email = emailInput.value.trim();
+    const error = document.getElementById("EmailError");
+
     const oldItems = JSON.parse(localStorage.users ?? "[]");
     console.log("Old list", oldItems);
 
+    const isEmailExists = oldItems.some(user => user.email === email);
+
+    if (email === "" || isEmailExists) {
+        error.style.display = "block";
+        emailInput.style.border = "2px solid red";
+        emailInput.style.backgroundColor = "#ffdddd";
+        return;
+    }
+    else {
+        emailInput.style.border = ""; 
+        emailInput.style.backgroundColor = "";
+    }
+
+
+    const formData = {
+        name: document.getElementById("name").value,
+        email: email,
+        password: document.getElementById("password").value,
+        avatar: document.getElementById("avatar").src
+    }
+
     let items = [...oldItems, formData];
+
 
     let json = JSON.stringify(items);
     localStorage.setItem("users", json);
     console.log("Submit form", json);
-    loadDOM('/partials/Users.html')
+    loadDOM('/partials/Users.html');
+
 }
 
 
