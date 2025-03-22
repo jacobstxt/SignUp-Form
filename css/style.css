@@ -2,15 +2,15 @@
     background-image: url('/images/light-background-hd-wallpaper-preview.jpg');
     background-size: cover; 
     background-position: center; 
-    margin-top:67px;
+    margin-top:60px;
 }
 
 
 .my-container {
     padding-left: 36%;
     padding-right: 36%;
-    margin: 15% 20px 0 20px;
-    margin-top: 4px;
+    margin: 5% 20px 30px 20px;
+    margin-top: 0px;
 }
 @media only screen and (max-width: 1400px) {
 
@@ -232,4 +232,8 @@ nav {
 button{
     height:50px;
     width:100px;
+}
+
+.error {
+    color: red;
 }

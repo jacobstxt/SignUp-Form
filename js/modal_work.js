@@ -1,6 +1,5 @@
 ﻿let cropper;
 let uploadImageURL;
-var file_blob;
 var image = document.getElementById('image');
 let avatar;
 
@@ -8,82 +7,6 @@ var uploadImage = document.getElementById('uploadImage');
 
 const leftRotate = document.getElementById('leftRotate');
 const rightRotate = document.getElementById('rightRotate');
-
-const formRegister = document.getElementById("formRegister");
-
-formRegister.onsubmit = (e) => {
-    e.preventDefault(); //відмінити станартну повіденку форми
- 
-
-    //const xhr = new XMLHttpRequest();
-    //const url = "https://goose.itstep.click/api/Account/register"; //443 // Replace with your actual API URL
-
-    //// Prepare the data
-    //const data = {
-    //    email: document.getElementById("email").value,
-    //    firstName: document.getElementById("name").value,
-    //    secondName: document.getElementById("name").value,
-    //    photo: document.getElementById("avatar").src,
-    //    phone: "+1234567890",
-    //    password: document.getElementById("password").value,
-    //    confirmPassword: document.getElementById("password").value
-    //};
-
-    //// Open a connection
-    //xhr.open("POST", url, true);
-    //xhr.setRequestHeader("Content-Type", "application/json");
-
-    //// Handle response
-    //xhr.onreadystatechange = function () {
-    //    if (xhr.readyState === 4) {
-    //        if (xhr.status >= 200 && xhr.status < 300) {
-    //            console.log("Success:", xhr.responseText);
-    //        } else {
-    //            console.error("Error:", xhr.status, xhr.responseText);
-    //        }
-    //    }
-    //};
- /*   xhr.send(JSON.stringify(data));*/
-
-
- 
-    const emailInput = document.getElementById("email");
-    const email = emailInput.value.trim();
-    const error = document.getElementById("EmailError");
-
-    const oldItems = JSON.parse(localStorage.users ?? "[]");
-    console.log("Old list", oldItems);
-
-    const isEmailExists = oldItems.some(user => user.email === email);
-
-    if (email === "" || isEmailExists) {
-        error.style.display = "block";
-        emailInput.style.border = "2px solid red";
-        emailInput.style.backgroundColor = "#ffdddd";
-        return;
-    }
-    else {
-        emailInput.style.border = ""; 
-        emailInput.style.backgroundColor = "";
-    }
-
-
-    const formData = {
-        name: document.getElementById("name").value,
-        email: email,
-        password: document.getElementById("password").value,
-        avatar: document.getElementById("avatar").src
-    }
-
-    let items = [...oldItems, formData];
-
-
-    let json = JSON.stringify(items);
-    localStorage.setItem("users", json);
-    console.log("Submit form", json);
-    loadDOM('/partials/Users.html');
-
-}
 
 
 leftRotate.onclick = function (e) {
@@ -137,9 +60,6 @@ uploadImage.onchange = (event) => {
             });
             uploadImage.value = "";
         }
-        else {
-            //window.alert('Please choose an image file.');
-        }
     }
 }
 
@@ -149,29 +69,6 @@ saveImage.onclick = function (e) {
         var base64 = cropper.getCroppedCanvas().toDataURL();
 
         avatar.src = uploadImageURL = base64;
-        //cropper.getCroppedCanvas().toBlob(function (blob) {
-        //    file_blob = new File([blob], "some_random_name.jpg");
 
-        //    if (uploadImageURL) {
-        //        URL.revokeObjectURL(uploadImageURL);
-        //    }
-        //    avatar.src = uploadImageURL = URL.createObjectURL(file_blob);
-
-        //});
     }
-}
-
-cancel.onclick = function (e) {
-    //image.src = avatar.src;
-    //if (cropper) {
-    //    cropper = cropper.destroy();
-    //}
-    //image.src = avatar.src;
-
-    //    cropper = cropper.destroy();
-
-    //cropper = new Cropper(image, {
-    //    aspectRatio: 1,
-    //    viewMode: 1
-    //});
 }

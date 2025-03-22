@@ -27,20 +27,47 @@
                     <label for="name" class="label-style">Your name</label>
                     <input type="text" name="name" id="name" class="input-style" placeholder="Mycle Oliver" required="">
                 </div>
+                <div>
+                    <label hidden id="nameError" class="error  block w-full">error</label>
+                </div>
+
+                <div>
+                    <label for="surname" class="label-style">Your Surname</label>
+                    <input type="text" name="name" id="surname" class="input-style" placeholder="Mycle Oliver" required="">
+                </div>
+                <div>
+                    <label hidden id="surnameError" class="error  block w-full">error</label>
+                </div>
 
                 <div>
                     <label for="email" class="label-style">Your email</label>
                     <input type="email" name="email" id="email" class="input-style" placeholder="name@gmail.com" required="">
-                    <label id="EmailError" for="email" style="color:red; display:none;">Користувач з таким email вже існує</label>
                 </div>
                 <div>
-                    <label for="password" class="label-style">Password</label>
-                    <input type="password" name="password" id="password" placeholder="••••••••" class="input-style" required="">
+                    <label hidden id="emailError" class="error  block w-full">error</label>
                 </div>
                 <div>
-                    <label for="confirm-password" class="label-style">Confirm password</label>
-                    <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="input-style" required="">
+                    <label for="phone" class="label-style">Your phone</label>
+                    <input type="tel" name="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="+380(00-00-00-000)">
                 </div>
+                <div>
+                    <label hidden id="phoneError" class="error  block w-full">error</label>
+                </div>
+
+                <div class="flex gap-12 justify-center">
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                        <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 ">
+                    </div>
+                    <div>
+                        <label for="confirmPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
+                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 ">
+                    </div>
+                </div>
+                <div>
+                    <label hidden id="passwordError" class="error  block w-full">error</label>
+                </div>
+
                 <div class="flex items-start">
                     <div class="flex items-center h-5">
                         <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3
@@ -63,7 +90,7 @@
         </div>
     </div>
     <script>loadDOM('/partials/modal_photo.html')</script>
-
+    <script src="/js/signUp_work.js"></script>
 
 </body>
 </html>
