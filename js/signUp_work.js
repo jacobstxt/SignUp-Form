@@ -26,7 +26,7 @@ formRegister.onsubmit = (e) => {
                 const token = JSON.parse(resp).token;
                 //console.log("Success:", token);
                 localStorage.setItem("token", token);
-                location.href = "/user/profile.html";
+                location.href = "Profile.html";
                 ClearFields();
             } else {
                 console.error("Error:", xhr.status, xhr.responseText);
