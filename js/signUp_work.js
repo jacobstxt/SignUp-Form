@@ -24,8 +24,8 @@ formRegister.onsubmit = (e) => {
             if (xhr.status >= 200 && xhr.status < 300) {
                 const resp = xhr.responseText;
                 const token = JSON.parse(resp).token;
-                //console.log("Success:", token);
                 localStorage.setItem("token", token);
+                ChangeMenu();
                 location.href = "/Profile.html";
                 ClearFields();
                 hide_loading();

@@ -20,36 +20,30 @@
 
     <div class="w-[85%] mx-auto">
         <div class="flex items-center justify-center min-h-screen w-full">
-            <div class="bg-white p-8 rounded-2xl shadow-xl w-[90%] max-w-4xl flex items-center justify-center grid lg:grid-cols-2 gap-6">
-                <img id="userPhoto"
-                     class="w-[300px] h-[300px] rounded-full border-2 border-[#0db865] shadow-lg object-cover"
-                     src="https://i.gifer.com/XOsX.gif"
-                     alt="User Photo">
+            <div class="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-4xl flex flex-col lg:flex-row items-center gap-8">
+                <!-- Фото користувача -->
+                <div class="flex justify-center">
+                    <img id="userPhoto"
+                         class="w-72 h-72 rounded-full border-4 border-[#0db865] shadow-xl object-cover"
+                         src="https://i.gifer.com/XOsX.gif"
+                         alt="User Photo">
+                </div>
 
+                <!-- Інформація про користувача -->
                 <div class="text-center lg:text-left">
-                    <h2 class="text-4xl font-bold text-[#0db865]">Welcome, <span id="userName">User Name</span>!</h2>
-                    <p class="text-gray-600 mt-4 text-xl">
-                        <strong>Email:</strong> <span id="userEmail">user@example.com</span>
+                    <h2 class="text-3xl font-bold text-[#0db865] flex items-center lg:justify-start">
+                        Welcome, <span id="userName" class="ml-2 text-3xl text-[#0db865]">User Name</span>
+                    </h2>
+                    <p class="text-gray-700 mt-4 text-lg flex items-center justify-center lg:justify-start">
+                        <strong class="text-xl text-gray-600">Email:</strong>
+                        <span id="userEmail" class="text-xl text-gray-600 ml-2">user@example.com</span>
                     </p>
-
-                    <!-- Кнопка Logout -->
-                    <button onclick="logout()"
-                            class="mt-6 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition">
-                        Вихід
-                    </button>
                 </div>
             </div>
         </div>
     </div>
 
 
-
-    <script>
-        function logout() {
-            localStorage.removeItem("token");
-            window.location.href = "/Login.html"; 
-        }
-    </script>
 
     <script>
         if (localStorage.getItem("token")) {
