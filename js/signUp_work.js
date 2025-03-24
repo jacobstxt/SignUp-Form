@@ -28,13 +28,15 @@ formRegister.onsubmit = (e) => {
                 localStorage.setItem("token", token);
                 location.href = "Profile.html";
                 ClearFields();
+                hide_loading();
             } else {
                 console.error("Error:", xhr.status, xhr.responseText);
                 HandleError(xhr.responseText);
+                hide_loading();
             }
         }
     };
-
+    show_loading();
     xhr.send(JSON.stringify(data));
 }
 

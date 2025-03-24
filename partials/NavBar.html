@@ -1,4 +1,8 @@
-﻿<nav class="bg-gradient-to-r from-blue-800 to-blue-750 py-2 shadow-lg">
+﻿
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+
+
+<nav class="bg-gradient-to-r from-blue-800 to-blue-750 py-2 shadow-lg" id="navbar_user">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-6">
         <!-- Логотип -->
         <a href="#" class="text-white text-3xl font-bold tracking-wide flex items-center space-x-3 hover:scale-105 transform transition duration-300">
@@ -11,15 +15,12 @@
             <a href="/index.html" class="text-white text-lg font-medium px-6 py-3 rounded-md bg-blue-500 hover:bg-blue-400 transition duration-300 shadow-md">
                 Sign Up
             </a>
-            <a href="/partials/Users.html" class="text-white text-lg font-medium px-6 py-3 rounded-md bg-blue-500 hover:bg-blue-400 transition duration-300 shadow-md">
-                Users
-            </a>
             <a href="/Login.html" class="text-white text-lg font-medium px-6 py-3 rounded-md bg-blue-500 hover:bg-blue-400 transition duration-300 shadow-md">
                 Login
-            </a>
-            <a href="/Profile.html" class="text-white text-lg font-medium px-6 py-3 rounded-md bg-blue-500 hover:bg-blue-400 transition duration-300 shadow-md">
-                Profile
             </a>
         </div>
     </div>
 </nav>
+
+
+<script src="/js/UserAvailable.js"></script>
