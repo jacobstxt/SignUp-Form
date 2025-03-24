@@ -1,7 +1,11 @@
 ﻿
-var userNav = document.getElementById('navbar_user');
-
 function ChangeMenu() {
+    var userNav = document.getElementById('navbar_user');
+    if (!userNav) {
+        console.log('Element navbar_user not found!');
+        return;
+    }
+
 
     let user = null;
     if (localStorage.getItem("token")) {
@@ -21,16 +25,16 @@ function ChangeMenu() {
           `;
 
         }
-    //    else if (user.roles == "admin") {
-    //        userNav.innerHTML = `
-    //<button id="accountButton" type="button" class="flex text-lg bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 " id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-    //<a href="/pages/admin/adminPanel.html">
-    //        <img id="accountImage" class="account-image rounded-full" src="/images/adminIcon.png" alt="user photo">
+        else if (user.roles == "admin") {
+            userNav.innerHTML = `           
+    <button id="accountButton" type="button" class="flex text-lg bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 " id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+    <a href="/pages/admin/adminPanel.html">
+            <img id="accountImage" class="account-image rounded-full" src="/images/adminIcon.png" alt="user photo">
 
-    //</a>
-    //</button>
-    //      `;
-    //    }
+    </a>
+    </button>
+          `;
+        }
     }
     else {
         userNav.innerHTML = `
@@ -55,5 +59,3 @@ function ChangeMenu() {
     }
 
 }
-
-document.addEventListener('DOMContentLoaded', ChangeMenu);

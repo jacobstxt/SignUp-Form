@@ -1,27 +1,30 @@
-﻿﻿<div id="photoModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-lg max-h-md flex justify-center bg-gray-300">
-        <div class="container row justify-center">
-            <div style="margin: auto">
-                <img style="width: auto; height: 300px; margin:auto" id="image" src="">
-            </div>
+﻿<div id="photoModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-10">
+    <div class="relative p-6 w-full max-w-lg bg-white rounded-lg shadow-lg">
+        <div class="flex flex-col justify-center items-center">
+            <img id="image" src="" alt="Uploaded Image" class="max-w-full max-h-60 object-contain mb-4" />
 
-            <br><br>
-            <div class="flex items-center justify-center w-full">
-                <label for="uploadImage" class="flex flex-col items-center justify-center  border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100" style="width:100px; height:50px; padding-top:10px">
-                    <svg style="width:50px; height:20px" class=" mb-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+            <!-- File upload section -->
+            <div class="flex items-center justify-center w-full mb-4">
+                <label for="uploadImage" class="flex flex-col items-center justify-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 w-24 h-15 mt-4 mb-4">
+                    <svg style="width: 50px; height: 20px" class="mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                     </svg>
                     <input id="uploadImage" type="file" class="hidden" accept="image/*" />
                 </label>
-                <img style="cursor:pointer; margin-left:20px" id="leftRotate" class="w-8 h-8" src="/images/turn-left.png" />
-                <img style="cursor:pointer" id="rightRotate" class="w-8 h-8" src="/images/turn-right.png" />
+                <div class="flex gap-4 ml-4">
+                    <img id="leftRotate" class="w-8 h-8 cursor-pointer" src="/images/turn-left.png" alt="Rotate Left" />
+                    <img id="rightRotate" class="w-8 h-8 cursor-pointer" src="/images/turn-right.png" alt="Rotate Right" />
+                </div>
             </div>
-            <br />
+
+            <!-- Buttons -->
             <div class="flex gap-4 items-center justify-center w-full">
-                <button id="saveImage" data-modal-hide="photoModal" class="btn-style" style="cursor:pointer">Accept avatar</button>
-
-                <button id="cancel" data-modal-hide="photoModal" class="btn-style" style="cursor:pointer">Don`t save</button>
-
+                <button id="saveImage" data-modal-hide="photoModal" class="btn-style py-2 px-4 bg-green-500 text-white rounded-full shadow-md hover:bg-green-600 focus:outline-none">
+                    Accept avatar
+                </button>
+                <button id="cancel" data-modal-hide="photoModal" class="btn-style py-2 px-4 bg-red-500 text-white rounded-full shadow-md hover:bg-red-600 focus:outline-none">
+                    Don’t save
+                </button>
             </div>
         </div>
     </div>

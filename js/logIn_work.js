@@ -1,8 +1,8 @@
-﻿const formRegister = document.getElementById('formLogin');
+﻿const formLogin = document.getElementById('formLogin');
 const emailError = document.getElementById("emailError");
 const passwordError = document.getElementById("passwordError");
 
-formRegister.onsubmit = (e) => {
+formLogin.onsubmit = (e) => {
     ClearErrors();
     e.preventDefault();
     const xhr = new XMLHttpRequest();

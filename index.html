@@ -1,18 +1,18 @@
-﻿﻿
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     <link href="/css/cropper.min.css" rel="stylesheet" />
     <script src="/js/site.js"></script>
+    <link href="/css/style.css" rel="stylesheet" />
     <title>Sign up</title>
 </head>
 <body>
 
     <script src="/js/cropper.min.js"></script>
-    <link href="/css/style.css" rel="stylesheet" />
     <script>loadDOM('/partials/loading.html')</script>
     <script>loadDOM('/partials/NavBar.html')</script>
     <div class="my-container">
@@ -24,20 +24,22 @@
                     Choose avatar
                 </button>
 
-                <div>
-                    <label for="name" class="label-style">Your name</label>
-                    <input type="text" name="name" id="name" class="input-style" placeholder="Mycle Oliver" required="">
-                </div>
-                <div>
-                    <label hidden id="nameError" class="error  block w-full">error</label>
-                </div>
+                <div class="flex gap-1 justify-center">
+                    <div>
+                        <label for="name" class="label-style">Your name</label>
+                        <input type="text" name="name" id="name" class="input-style" placeholder="Mycle" required="">
+                    </div>
+                    <div>
+                        <label hidden id="nameError" class="error  block w-full">error</label>
+                    </div>
 
-                <div>
-                    <label for="surname" class="label-style">Your Surname</label>
-                    <input type="text" name="name" id="surname" class="input-style" placeholder="Mycle Oliver" required="">
-                </div>
-                <div>
-                    <label hidden id="surnameError" class="error  block w-full">error</label>
+                    <div>
+                        <label for="surname" class="label-style">Your Surname</label>
+                        <input type="text" name="name" id="surname" class="input-style" placeholder="Oliver" required="">
+                    </div>
+                    <div>
+                        <label hidden id="surnameError" class="error  block w-full">error</label>
+                    </div>
                 </div>
 
                 <div>
@@ -49,7 +51,7 @@
                 </div>
                 <div>
                     <label for="phone" class="label-style">Your phone</label>
-                    <input type="tel" name="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="+380(00-00-00-000)">
+                    <input type="tel" name="phone" id="phone" class="input-style" placeholder="+380(00-00-00-000)">
                 </div>
                 <div>
                     <label hidden id="phoneError" class="error  block w-full">error</label>
@@ -57,12 +59,12 @@
 
                 <div class="flex gap-12 justify-center">
                     <div>
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 ">
+                        <label for="password" class="label-style">Password</label>
+                        <input type="password" name="password" id="password" placeholder="••••••••" class="input-style">
                     </div>
                     <div>
-                        <label for="confirmPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 ">
+                        <label for="confirmPassword" class="label-style">Confirm password</label>
+                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="••••••••" class="input-style">
                     </div>
                 </div>
                 <div>
@@ -85,7 +87,7 @@
 
                 <button type="submit" class="btn-style ">Create an account</button>
                 <p class="text-sm font-light text-white">
-                    Already have an account? <a href="#" class="font-medium text-blue-600 hover:underline">Login here</a>
+                    Already have an account? <a href="Login.html" class="font-medium text-blue-600 hover:underline">Login here</a>
                 </p>
             </form>
         </div>

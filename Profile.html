@@ -7,10 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/js/site.js"></script>
-    <title>Профіль користувача</title>
+    <title>Profile</title>
     <link href="/css/style.css" rel="stylesheet" />
 </head>
 
@@ -32,7 +31,6 @@
                     <p class="text-gray-600 mt-4 text-xl">
                         <strong>Email:</strong> <span id="userEmail">user@example.com</span>
                     </p>
-                    <p class="text-gray-600 text-xl"><strong>Phone:</strong> <span id="userPhone">+1234567890</span></p>
 
                     <!-- Кнопка Logout -->
                     <button onclick="logout()"
@@ -49,8 +47,7 @@
     <script>
         function logout() {
             localStorage.removeItem("token");
-            //alert("Ви вийшли з акаунту!"); // Тут можна додати реальну логіку виходу
-            window.location.href = "/login.html"; // Перенаправлення на сторінку входу
+            window.location.href = "/Login.html"; 
         }
     </script>
 
@@ -69,7 +66,6 @@
                     document.getElementById("userPhoto").src = `https://goose.itstep.click/images/400_${photo}`;
                     document.getElementById("userName").innerText = `${secondName} ${firstName}`;
                     document.getElementById("userEmail").innerText = ` ${email}`;
-                    document.getElementById("userPhone").innerText = ` ${phone}`;
                     console.log("User profile", data);
                 })
                 .catch(err => {
