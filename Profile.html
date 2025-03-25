@@ -56,11 +56,19 @@
             })
                 .then(resp => {
                     const { data } = resp;
-                    const { id, email, firstName, secondName, phone, photo } = data;
+                    const { id, email, firstName, secondName, phone, photo, roles } = data; 
+
                     document.getElementById("userPhoto").src = `https://goose.itstep.click/images/400_${photo}`;
                     document.getElementById("userName").innerText = `${secondName} ${firstName}`;
-                    document.getElementById("userEmail").innerText = ` ${email}`;
-                    console.log("User profile", data);
+                    document.getElementById("userEmail").innerText = email;
+
+                    if (roles && roles.includes("admin")) { 
+                        console.log("User is an Admin");
+                        document.getElementById("userPhoto").src = '/images/adminIcon.png'; 
+                        document.getElementById("userName").innerText += ' (Admin)'; 
+                    } else {
+                        console.log("User is not an Admin");
+                    }
                 })
                 .catch(err => {
                     console.log("Error", err);
