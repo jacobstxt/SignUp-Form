@@ -79,14 +79,14 @@ function ChangeMenu() {
                 userNav.innerHTML = `
          <div class="max-w-7xl mx-auto flex justify-between items-center px-6">
         <!--Логотип-->
-        <a href="#" class="text-white text-3xl font-bold tracking-wide flex items-center space-x-3 hover:scale-105 transform transition duration-300">
+        <a href="#" class="text-black text-3xl font-bold tracking-wide flex items-center space-x-3 hover:scale-105 transform transition duration-300">
             <img src="/images/icon-img.png" class="h-12 rounded-full shadow-md" alt="Logo">
-            <span class="text-gray-100">SignUp Form</span>
+            <span class="text-black-500">SignUp Form</span>
         </a>
 
         <div class="flex items-center justify-end space-x-6">
             <!-- Ім'я користувача -->
-            <span class="text-white text-lg font-semibold">Admin</span>
+            <span class="text-black text-lg font-semibold">Admin</span>
 
             <!-- Кнопка профілю -->
             <div class="relative ml-20">
@@ -142,17 +142,17 @@ function ChangeMenu() {
         userNav.innerHTML = `
                        <div class="max-w-7xl mx-auto flex justify-between items-center px-6">
                 <!-- Логотип -->
-                <a href="#" class="text-white text-3xl font-bold tracking-wide flex items-center space-x-3 hover:scale-105 transform transition duration-300">
+                <a href="#" class="text-black text-3xl font-bold tracking-wide flex items-center space-x-3 hover:scale-105 transform transition duration-300">
                     <img src="/images/icon-img.png" class="h-12 rounded-full shadow-md" alt="Logo">
-                    <span class="text-gray-100">SignUp Form</span>
+                    <span class="text-black-500">SignUp Form</span>
                 </a>
 
                 <!-- Контейнер для кнопок -->
                 <div class="bg-white/10 p-2 rounded-lg shadow-md flex space-x-4">
-                    <a href="/index.html" class="text-white text-lg font-medium px-6 py-3 rounded-md bg-blue-500 hover:bg-blue-400 transition duration-300 shadow-md">
+                    <a href="/index.html" class="text-black text-lg font-medium px-6 py-3 rounded-md bg-blue-500 hover:bg-blue-400 transition duration-300 shadow-md">
                         Sign Up
                     </a>
-                    <a href="/Login.html" class="text-white text-lg font-medium px-6 py-3 rounded-md bg-blue-500 hover:bg-blue-400 transition duration-300 shadow-md">
+                    <a href="/Login.html" class="text-black text-lg font-medium px-6 py-3 rounded-md bg-blue-500 hover:bg-blue-400 transition duration-300 shadow-md">
                         Login
                     </a>
                 </div>
