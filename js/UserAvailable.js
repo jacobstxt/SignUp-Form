@@ -90,7 +90,7 @@ function ChangeMenu() {
 
             <!-- Кнопка профілю -->
             <div class="relative ml-20">
-                <button id="accountButton" type="button" class="flex items-center bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 w-12 h-12">
+                <button id="accountButton" style="width: 48px; height: 48px;" type="button" class="flex items-center bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300">
                     <img id="accountImage" class="rounded-full w-12 h-12 object-cover" src="/images/adminIcon.png" alt="user photo">
                 </button>
 
