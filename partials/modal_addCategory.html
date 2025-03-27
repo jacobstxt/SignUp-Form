@@ -1,0 +1,126 @@
+﻿
+<div id="AddCategoryModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-80">
+    <div class="relative p-6 top-20 w-full max-w-lg bg-white rounded-lg shadow-lg">
+
+        <div class="grid grid-cols-2 gap-6">
+
+            <div class="flex flex-col justify-center items-center">
+                <img id="imageСategory" src="/images/no-avatar.png" alt="Uploaded Image" class="max-w-full max-h-60 object-contain mb-4" />
+                <!-- File upload section -->
+                <div class="flex items-center justify-center w-full mb-4">
+                    <label for="uploadImageCategory" class="flex flex-col items-center justify-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 w-24 h-15 mt-4 mb-4">
+                        <svg style="width: 50px; height: 23px" class="mb-1 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                        </svg>
+                        <input id="uploadImageCategory" type="file" class="hidden" accept="image/*" />
+                    </label>
+                </div>
+            </div>
+
+
+            <div>
+                <div class="w-full mb-4">
+                    <label for="title" class="block text-gray-700">Title</label>
+                    <input id="title" type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md" placeholder="Enter category title" />
+                </div>
+
+                <div class="w-full mb-4">
+                    <label for="priority" class="block text-gray-700">Priority</label>
+                    <input id="priority" type="number" class="w-full px-4 py-2 border border-gray-300 rounded-md" placeholder="Enter priority level" min="0" />
+                </div>
+
+                <div class="w-full mb-4">
+                    <label for="urlSlug" class="block text-gray-700">URL Slug</label>
+                    <input id="urlSlug" type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md" placeholder="Enter URL slug" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="flex gap-4 items-center justify-center w-full mt-4">
+            <button id="saveCategoryInfo" data-modal-hide="AddCategoryModal" class="btn-style py-2 px-4 bg-green-500 text-white rounded-full shadow-md hover:bg-green-600 focus:outline-none">
+                Accept avatar
+            </button>
+            <button id="cancel" data-modal-hide="AddCategoryModal" class="btn-style py-2 px-4 bg-red-500 text-white rounded-full shadow-md hover:bg-red-600 focus:outline-none">
+                Don’t save
+            </button>
+        </div>
+
+    </div>
+    </div>
+
+
+
+
+
+<script>
+    let cropper;
+    let uploadImageURL;
+    let image; // image переміщається сюди, щоб бути доступним після завантаження DOM
+    let avatar;
+    let uploadImage;
+    let saveImage;
+    let addCategoryBT;
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Ініціалізація елементів після завантаження DOM
+        image = document.getElementById('imageСategory');
+        uploadImage = document.getElementById('uploadImageCategory');
+        saveImage = document.getElementById('saveCategoryInfo');
+        addCategoryBT = document.getElementById('addCategoryBT');
+        // Додаємо обробник події для кнопки додавання категорії
+        addCategoryBT.onclick = function (e) {
+            avatar = document.getElementById('avatar'); 
+
+            console.log("Chose image", avatar.src);
+            if (cropper) {
+                cropper.destroy(); 
+            }
+
+            cropper = new Cropper(image, {
+                aspectRatio: 1,
+                viewMode: 0.5
+            });
+
+        }
+
+        uploadImage.onchange = (event) => {
+
+            const { target } = event;
+            const { files } = target;
+
+            const file = files[0];
+            if (file) {
+                if (/^image\/\w+/.test(file.type)) {
+
+                    if (uploadImageURL) {
+                        URL.revokeObjectURL(uploadImageURL);
+                    }
+
+                    image.src = uploadImageURL = URL.createObjectURL(file);
+
+                    if (cropper) {
+                        cropper = cropper.destroy();
+                    }
+                    cropper = new Cropper(image, {
+                        aspectRatio: 1,
+                        viewMode: 0.5
+                    });
+                    uploadImage.value = "";
+                }
+            }
+        }
+
+        saveImage.onclick = function (e) {
+            if (cropper) {
+                var base64 = cropper.getCroppedCanvas().toDataURL(); 
+                image.src = base64; 
+                const avatar = document.getElementById('avatar');
+                if (avatar) {
+                    avatar.src = base64; 
+                }
+            }
+        }
+    });
+
+</script>

@@ -245,3 +245,10 @@ button{
 .error {
     color: red;
 }
+
+
+#imageСategory {
+    width: 200px; /* Фіксована ширина */
+    height: 200px; /* Фіксована висота */
+    object-fit: cover; /* Обрізає зображення, щоб воно заповнювало область */
+}

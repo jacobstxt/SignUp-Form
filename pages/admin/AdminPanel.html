@@ -5,6 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="/css/cropper.min.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
     <title>Admin Panel</title>
 </head>
@@ -37,31 +38,16 @@
                     </tr>
                 </thead>
                 <tbody id="listCategories">
-                    <tr class="bg-white border-b  border-gray-200 hover:bg-gray-50">
-                        <td class="p-4">
-                            <img src="https://flowbite.com/docs/images/products/apple-watch.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
-                        </td>
-                        <td class="px-6 py-4 font-semibold text-gray-900">
-                            Apple Watch
-                        </td>
-                        <td class="px-6 py-4 font-semibold text-gray-900">
-                            sdfasfasf
-                        </td>
+                    
 
-                        <td class="px-6 py-4 font-semibold text-gray-900">
-                            1
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
 
     </div>
 
-    <script>async function fetchCategories() {
+    <script>
+        async function fetchCategories() {
             try {
                 const response = await axios.get('https://goose.itstep.click/api/Categories/list', {
                     headers: {
@@ -74,25 +60,25 @@
                 data.forEach(item => {
                     //console.log("item", item);
                     listCategories.innerHTML += `
-                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
-                                <td class="p-4">
-                                    <img src="https://goose.itstep.click/images/200_${item.image}" class="" alt="Apple Watch">
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900">
-                                    ${item.title}
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900">
-                                    ${item.urlSlug}
-                                </td>
+                                    <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
+                                        <td class="p-4">
+                                            <img id="avatar" src="https://goose.itstep.click/images/200_${item.image}" class="" alt="Apple Watch">
+                                        </td>
+                                        <td class="px-6 py-4 font-semibold text-gray-900">
+                                            ${item.title}
+                                        </td>
+                                        <td class="px-6 py-4 font-semibold text-gray-900">
+                                            ${item.urlSlug}
+                                        </td>
 
-                                <td class="px-6 py-4 font-semibold text-gray-900">
-                                    ${item.priority}
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="${item.id}" class="font-medium text-red-600 hover:underline">Remove</a>
-                                </td>
-                            </tr>
-                    `;
+                                        <td class="px-6 py-4 font-semibold text-gray-900">
+                                            ${item.priority}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <a href="${item.id}" class="font-medium text-red-600 hover:underline">Remove</a>
+                                        </td>
+                                    </tr>
+                            `;
                 });
                 //console.log("Server Result", data);
             } catch (error) {
