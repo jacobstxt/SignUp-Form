@@ -25,7 +25,7 @@ function ChangeMenu() {
         <!-- Логотип -->
         <a href="#" class="text-white text-3xl font-bold tracking-wide flex items-center space-x-3 hover:scale-105 transform transition duration-300">
             <img src="/images/icon-img.png" class="h-12 rounded-full shadow-md" alt="Logo">
-            <span class="text-gray-100">SignUp Form</span>
+              <span class="text-black-500">SignUp Form</span>
         </a>
 
         <div class="flex items-center justify-end space-x-6">

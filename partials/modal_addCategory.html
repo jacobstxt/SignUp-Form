@@ -56,23 +56,24 @@
 <script>
     let cropper;
     let uploadImageURL;
-    let image; // image переміщається сюди, щоб бути доступним після завантаження DOM
+    let image; 
     let avatar;
     let uploadImage;
     let saveImage;
     let addCategoryBT;
 
     document.addEventListener('DOMContentLoaded', function () {
-        // Ініціалізація елементів після завантаження DOM
+
+
         image = document.getElementById('imageСategory');
         uploadImage = document.getElementById('uploadImageCategory');
         saveImage = document.getElementById('saveCategoryInfo');
         addCategoryBT = document.getElementById('addCategoryBT');
-        // Додаємо обробник події для кнопки додавання категорії
-        addCategoryBT.onclick = function (e) {
-            avatar = document.getElementById('avatar'); 
 
-            console.log("Chose image", avatar.src);
+
+        addCategoryBT.onclick = function (e) {
+            
+            /*image.src = avatar.src;*/
             if (cropper) {
                 cropper.destroy(); 
             }
@@ -112,13 +113,52 @@
         }
 
         saveImage.onclick = function (e) {
+            const imageElement = document.getElementById("imageСategory");
+
             if (cropper) {
-                var base64 = cropper.getCroppedCanvas().toDataURL(); 
-                image.src = base64; 
-                const avatar = document.getElementById('avatar');
-                if (avatar) {
-                    avatar.src = base64; 
-                }
+
+                var base64 = cropper.getCroppedCanvas().toDataURL();
+                imageElement.src = base64;
+            }
+
+
+            const title = document.getElementById("title").value.trim();
+            const priority = document.getElementById("priority").value.trim();
+            const urlSlug = document.getElementById("urlSlug").value.trim();
+         
+            const imageSrc = imageElement ? imageElement.src : "/images/no-avatar.png";
+
+            if (!title || !urlSlug || priority === "") {
+                alert("Заповніть всі поля!");
+                return;
+            }
+
+            const newCategory = {
+                title,
+                urlSlug,
+                priority,
+                image: imageSrc
+            };
+
+            try {
+                //Виводжу свій об'єкт категорії
+                console.log("Category",newCategory);
+                show_loading();
+                //Посилаю запит на сервер де передаю категорію
+                axios.post("https://goose.itstep.click/api/categories/add", newCategory).then(resp => {
+                    console.log("res", resp);
+                    window.location.reload();
+                    document.getElementById("AddCategoryModal").classList.add("hidden");
+                    hide_loading();
+                }).catch(error => {
+                    console.log("problem", error);
+                    hide_loading();
+                });
+              
+            }
+            catch (error) {
+                console.error("Error adding category:", error);
+                hide_loading();
             }
         }
     });

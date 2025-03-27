@@ -11,6 +11,7 @@
 </head>
 <body>
     <script src="/js/site.js"></script>
+    <script>loadDOM('/partials/loading.html')</script>
     <script>loadDOM('/partials/NavBar.html');</script>
     <script>loadDOM('/partials/asideAdminPanel.html');</script>
 
@@ -38,8 +39,6 @@
                     </tr>
                 </thead>
                 <tbody id="listCategories">
-                    
-
                 </tbody>
             </table>
         </div>
@@ -49,43 +48,46 @@
     <script>
         async function fetchCategories() {
             try {
+                show_loading();
                 const response = await axios.get('https://goose.itstep.click/api/Categories/list', {
                     headers: {
                         'Accept': '*/*'
                     }
                 });
+                hide_loading();
                 const { data } = response;
                 const listCategories = document.getElementById("listCategories");
-                listCategories.innerHTML = "";
+                listCategories.innerHTML = "";             
                 data.forEach(item => {
-                    //console.log("item", item);
                     listCategories.innerHTML += `
-                                    <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
-                                        <td class="p-4">
-                                            <img id="avatar" src="https://goose.itstep.click/images/200_${item.image}" class="" alt="Apple Watch">
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold text-gray-900">
-                                            ${item.title}
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold text-gray-900">
-                                            ${item.urlSlug}
-                                        </td>
+                                        <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
+                                            <td class="p-4">
+                                                <img id="avatar" src="https://goose.itstep.click/images/200_${item.image}" class="" alt="Apple Watch">
+                                            </td>
+                                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                                ${item.title}
+                                            </td>
+                                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                                ${item.urlSlug}
+                                            </td>
 
-                                        <td class="px-6 py-4 font-semibold text-gray-900">
-                                            ${item.priority}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <a href="${item.id}" class="font-medium text-red-600 hover:underline">Remove</a>
-                                        </td>
-                                    </tr>
-                            `;
+                                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                                ${item.priority}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                <a href="${item.id}" class="font-medium text-red-600 hover:underline">Remove</a>
+                                            </td>
+                                        </tr>
+                                `;
                 });
-                //console.log("Server Result", data);
             } catch (error) {
                 console.error('Error fetching categories:', error);
             }
         }
 
-        fetchCategories();</script>
+        fetchCategories();
+
+    </script>
+
 </body>
 </html>
