@@ -58,38 +58,38 @@
 
 
 <script>
-    let cropper;
-    let uploadImageURL;
-    let image; 
-    let avatar;
-    let uploadImage;
-    let saveImage;
-    let addCategoryBT;
+    let add_cropper;
+    let add_uploadImageURL;
+    let add_image; 
+    let add_avatar;
+    let add_uploadImage;
+    let add_saveImage;
+    let add_addCategoryBT;
 
     document.addEventListener('DOMContentLoaded', function () {
 
 
-        image = document.getElementById('imageСategory');
-        uploadImage = document.getElementById('uploadImageCategory');
-        saveImage = document.getElementById('saveCategoryInfo');
-        addCategoryBT = document.getElementById('addCategoryBT');
+        add_image = document.getElementById('imageСategory');
+        add_uploadImage = document.getElementById('uploadImageCategory');
+        add_saveImage = document.getElementById('saveCategoryInfo');
+        add_addCategoryBT = document.getElementById('addCategoryBT');
 
 
 
-        addCategoryBT.onclick = function (e) {
+        add_addCategoryBT.onclick = function (e) {
             
-            if (cropper) {
-                cropper.destroy(); 
+            if (add_cropper) {
+                add_cropper.destroy(); 
             }
 
-            cropper = new Cropper(image, {
+            add_cropper = new Cropper(add_image, {
                 aspectRatio: 1,
-                viewMode: 0.5
+                viewMode: 1
             });
 
         }
 
-        uploadImage.onchange = (event) => {
+        add_uploadImage.onchange = (event) => {
 
             const { target } = event;
             const { files } = target;
@@ -98,31 +98,30 @@
             if (file) {
                 if (/^image\/\w+/.test(file.type)) {
 
-                    if (uploadImageURL) {
-                        URL.revokeObjectURL(uploadImageURL);
+                    if (add_uploadImageURL) {
+                        URL.revokeObjectURL(add_uploadImageURL);
                     }
 
-                    image.src = uploadImageURL = URL.createObjectURL(file);
+                    add_image.src = add_uploadImageURL = URL.createObjectURL(file);
 
-                    if (cropper) {
-                        cropper = cropper.destroy();
+                    if (add_cropper) {
+                        add_cropper = add_cropper.destroy();
                     }
-                    cropper = new Cropper(image, {
+                    add_cropper = new Cropper(add_image, {
                         aspectRatio: 1,
                         viewMode: 0.5
                     });
-                    uploadImage.value = "";
+                    add_uploadImage.value = "";
                 }
             }
         }
 
-        saveImage.onclick = function (e) {
+        add_saveImage.onclick = function (e) {
             e.preventDefault();
             const imageElement = document.getElementById("imageСategory");
 
-            if (cropper) {
-
-                var base64 = cropper.getCroppedCanvas().toDataURL();
+            if (add_cropper) {
+                var base64 = add_cropper.getCroppedCanvas().toDataURL();
                 imageElement.src = base64;
             }
 

@@ -6,19 +6,20 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.14.0/qs.min.js" integrity="sha512-6yLIYbXqyvjSDYNO1pgBRjwWPBw66kMOb+sHqrvn457+iJiret0PeHzUlpLKHH0fYzX9bxGtPDqQ84xKrhEYSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
     <link href="/css/cropper.min.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
     <title>Admin Panel</title>
 </head>
 <body>
     <script src="/js/site.js"></script>
+    <script src="/js/cropper.min.js"></script>
     <script>loadDOM('/partials/loading.html')</script>
-    <script>loadDOM('/partials/NavBar.html');</script>
     <script>loadDOM('/partials/asideAdminPanel.html');</script>
+    <script>loadDOM('/partials/NavBar.html');</script>
 
-    <br />
-    <div id="addItemPage" style="margin:20px 50px 0 300px">
-
+    <div id="addItemPage" style="margin:83px 50px 0 300px">
         <form id="formSearch">
             <div class="relative z-0 w-full mb-5 mt-6 group">
                 <input type="text" name="title" id="title" class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
@@ -133,25 +134,30 @@
                 listCategories.innerHTML = "";
                 categories.forEach(item => {
                     listCategories.innerHTML += `
-                                                <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
-                                                    <td class="p-4">
-                                                        <img id="avatar" src="https://goose.itstep.click/images/200_${item.image}" class="" alt="Apple Watch">
-                                                    </td>
-                                                    <td class="px-6 py-4 font-semibold text-gray-900">
-                                                        ${item.title}
-                                                    </td>
-                                                    <td class="px-6 py-4 font-semibold text-gray-900">
-                                                        ${item.urlSlug}
-                                                    </td>
+                                                        <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
+                                                            <td class="p-4">
+                                                                <img id="avatar" src="https://goose.itstep.click/images/200_${item.image}" class="" alt="Apple Watch">
+                                                            </td>
+                                                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                                                ${item.title}
+                                                            </td>
+                                                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                                                ${item.urlSlug}
+                                                            </td>
 
-                                                    <td class="px-6 py-4 font-semibold text-gray-900">
-                                                        ${item.priority}
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        <a href="${item.id}" class="font-medium text-red-600 hover:underline">Remove</a>
-                                                    </td>
-                                                </tr>
-                                        `;
+                                                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                                                ${item.priority}
+                                                            </td>
+                                                            <td class="px-6 py-4">
+                                                                <a href="/partials/editCategory.html?id=${item.id}" class="font-medium text-blue-600  hover:underline">
+                                                                    <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i>
+                                                                </a>
+                                                                <a href="#" data-delete="${item.id}" data-delete-name="${item.title}" class="font-medium text-red-600  hover:underline">
+                                                                    <i class="fa fa-2x fa-times" aria-hidden="true"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                `;
                 });
 
                 window.scrollTo(0, 0);
@@ -182,34 +188,34 @@
         function loadPagination(pages, currentPage) {
             const pagination = document.getElementById("pagination");
             pagination.innerHTML = `
-             <li>
-                     <a href="#" data-page="${1}" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700">Previous</a>
-             </li>
-             `;
+                     <li>
+                             <a href="#" data-page="${1}" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700">Previous</a>
+                     </li>
+                     `;
 
             for (let i = 1; i <= pages; i++) {
                 if (i == currentPage) {
                     pagination.innerHTML += `
-                 <li>
-                     <a href="#" data-page="${i}" aria-current="page" class="flex items-center justify-center px-4 h-10 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700">${i}</a>
-                 </li>
-                 `;
+                         <li>
+                             <a href="#" data-page="${i}" aria-current="page" class="flex items-center justify-center px-4 h-10 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700">${i}</a>
+                         </li>
+                         `;
 
                 }
                 else {
                     pagination.innerHTML += `
-                 <li>
-                     <a href="#" data-page="${i}" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">${i}</a>
-                 </li>
-                 `;
+                         <li>
+                             <a href="#" data-page="${i}" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">${i}</a>
+                         </li>
+                         `;
                 }
             }
 
             pagination.innerHTML += `
-             <li>
-                 <a href="#" data-page="${pages}" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700">Next</a>
-             </li>
-                 `;
+                     <li>
+                         <a href="#" data-page="${pages}" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700">Next</a>
+                     </li>
+                         `;
         }
 
 
