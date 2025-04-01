@@ -24,10 +24,10 @@
         <div class="relative bg-white rounded-lg shadow-sm">
 
             <form class="p-4 md:p-5" action="#" id="categoryForm">
-                <div class="grid gap-4 mb-4 grid-cols-2">
+                <div class="grid gap-4 mb-4 grid-cols-[150px_auto]">
                     <img id="avatar" style="width:120px; height:120px; margin:auto auto 5px auto;border:2px solid gray" class="rounded-full" src="/images/icon-img.png" alt="Bordered avatar">
 
-                    <button id="chooseBT" data-modal-target="photoModal" data-modal-toggle="photoModal" style="margin:auto; cursor:pointer; width:150px;" class="btn-editStyle block text-white bg-blue-500  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button">
+                    <button id="chooseBT" data-modal-target="photoModal" data-modal-toggle="photoModal" style="margin-right:60px; margin-top:30px; cursor:pointer; width:150px;" class="btn-editStyle block text-white bg-blue-500  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button">
                         Choose icon
                     </button>
                 </div>
@@ -38,20 +38,20 @@
                         <label id="imageError" class="error text-sm block w-full"></label>
                     </div>
                     <div class="col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Title</label>
-                        <input oninput="updateSlug()" type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="Type category name" required="">
+                        <label for="name" class="label-style block mb-2 text-sm font-medium text-gray-900">Title</label>
+                        <input oninput="updateSlug()" type="text" name="name" id="name" class="input-style" placeholder="Type category name" required="">
                     </div>
 
                     <div class="col-span-2">
-                        <label for="slug" class="block mb-2 text-sm font-medium text-gray-900">URL Slug</label>
-                        <input type="text" disabled name="slug" id="slug" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="Generated urlSlug">
+                        <label for="slug" class="label-style block mb-2 text-sm font-medium text-gray-900">URL Slug</label>
+                        <input type="text" disabled name="slug" id="slug" class="input-style" placeholder="Generated urlSlug">
                     </div>
                     <div class="col-span-2">
                         <label hidden id="slugError" class="error block w-full"></label>
                     </div>
                     <div class="col-span-2">
-                        <label for="priority" class="block mb-2 text-sm font-medium text-gray-900">Priority</label>
-                        <input type="number" name="priority" id="priority" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="1" required="">
+                        <label for="priority" class="label-style block mb-2 text-sm font-medium text-gray-900">Priority</label>
+                        <input type="number" name="priority" id="priority" class="input-style" placeholder="1" required="">
                     </div>
                 </div>
 
@@ -62,7 +62,6 @@
                     </button>
 
                     <button onclick="window.location.href='/pages/admin/AdminPanel.html'" style="cursor: pointer; width: 120px" class="btn-editStyle text-white inline-flex items-center bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                        <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
                         Cancel
                     </button>
                 </div>
