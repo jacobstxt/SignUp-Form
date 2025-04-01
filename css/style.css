@@ -257,5 +257,30 @@ button{
 
 
 .Category {
-    margin: 8% 25% 0 30%
+    margin: 6% 25% 0 35%
 }
+
+
+
+
+.btn-editStyle {
+    background-color: #1844d8;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+    .btn-editStyle:hover {
+        background-color: #155bb5;
+        transform: translateY(-2px);
+    }
+
+    .btn-editStyle:active {
+        background-color: #123c91;
+        transform: translateY(1px);
+    }
+
+    .btn-editStyle:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+    }
