@@ -50,7 +50,7 @@ categoryForm.onsubmit = (e) => {
         if (xhr.readyState === 4) {
             if (xhr.status >= 200 && xhr.status < 300) {
                 const resp = xhr.responseText;
-                location.href = "/pages/admin/adminPanel.html";
+                location.href = "/pages/admin/AdminPanel.html";
 
 
             } else {
