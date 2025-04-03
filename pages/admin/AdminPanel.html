@@ -161,6 +161,7 @@
                 });
 
                 window.scrollTo(0, 0);
+                deleteDataItem();
                 searchDataPage();
 
             } catch (error) {
@@ -169,6 +170,19 @@
         }
 
         fetchCategories();
+
+        function deleteDataItem() {
+            document.querySelectorAll('[data-delete]').forEach(element => {
+                element.addEventListener('click', event => {
+                    event.preventDefault(); // Запобігаємо переходу за посиланням
+                    console.log("event.target", event.target);
+                    const link = event.target.closest('a[data-delete]');
+                    const deleteId = link.getAttribute('data-delete'); // Отримуємо значення data-page
+                    const deleteName = link.getAttribute('data-delete-name'); // Отримуємо значення data-page
+                    console.log('Delete By Id:', deleteId, deleteName);
+                });
+            });
+        }
 
 
         function searchDataPage() {

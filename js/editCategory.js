@@ -92,12 +92,13 @@ window.addEventListener('load', async () => {
         }
     });
     const { data } = response;
+    console.log("Дані", data);
+    console.log(typeof data.priority); 
+    console.log(data.priority);  
 
     document.getElementById('avatar').src = `https://goose.itstep.click/images/100_${data.image}`;
     document.getElementById('name').value = data.title;
     document.getElementById('priority').value = data.priority;
     document.getElementById('slug').value = data.urlSlug;
-    console.log("Дані", document.getElementById('priority').value);
-    console.log("Дані2", data.priority);
     hide_loading()
 });

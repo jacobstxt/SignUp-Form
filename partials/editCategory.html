@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-span-2">
                         <label for="priority" class="label-style block mb-2 text-sm font-medium text-gray-900">Priority</label>
-                        <input type="number" name="priority" id="priority" class="input-style"  required="">
+                        <input type="number" name="priority" id="priority" class="input-style" placeholder="1"  required="">
                     </div>
                 </div>
 
@@ -74,17 +74,14 @@
         </div>
     </div>
 
-    <script>function updateSlug() {
+    <script>
+        function updateSlug() {
             const name = document.getElementById('name').value;
             let slug = slugify(name);
             slug = slug.toLowerCase();
             slug = slug.replace(/[@#$']/g, '');
             document.getElementById('slug').value = slug;
             }
-
-
-
-
     </script>
 
     <script>loadDOM('/partials/modal_photo.html')</script>
