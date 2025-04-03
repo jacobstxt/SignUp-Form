@@ -1,5 +1,4 @@
-﻿
-const categoryForm = document.getElementById('categoryForm');
+﻿const categoryForm = document.getElementById('categoryForm');
 const categoryPB = document.getElementById('categoryPB');
 const categoryName = document.getElementById('name');
 const category = localStorage.getItem('categoryEdit');
@@ -18,13 +17,12 @@ categoryForm.onsubmit = (e) => {
 
     const data = {
         id: new URLSearchParams(window.location.search).get('id') || null,
-        title: document.getElementById("name").value,
-        priority: document.getElementById("priority").value,
+        title: document.getElementById("name").value, 
         ...(newImage !== null && { image: newImage }), // Додаємо поле image тільки якщо newImage !== null
-        urlSlug: document.getElementById("slug").value
+        urlSlug: document.getElementById("slug").value,
+        priority: document.getElementById("priority").value
     };
     const url = `https://goose.itstep.click/api/Categories/edit?${data}`;
-
 
     xhr.open("PUT", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -43,8 +41,7 @@ categoryForm.onsubmit = (e) => {
             }
         }, 500);
 
-    })
-        ;
+    });
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
@@ -100,6 +97,7 @@ window.addEventListener('load', async () => {
     document.getElementById('name').value = data.title;
     document.getElementById('priority').value = data.priority;
     document.getElementById('slug').value = data.urlSlug;
-
+    console.log("Дані", document.getElementById('priority').value);
+    console.log("Дані2", data.priority);
     hide_loading()
 });
