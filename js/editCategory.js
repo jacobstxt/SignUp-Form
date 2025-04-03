@@ -20,7 +20,7 @@ categoryForm.onsubmit = (e) => {
         title: document.getElementById("name").value, 
         ...(newImage !== null && { image: newImage }), // Додаємо поле image тільки якщо newImage !== null
         urlSlug: document.getElementById("slug").value,
-        priority: document.getElementById("priority").value
+        priority: document.getElementById("ttt").value
     };
     const url = `https://goose.itstep.click/api/Categories/edit?${data}`;
 
@@ -93,11 +93,13 @@ window.addEventListener('load', async () => {
     });
     const { data } = response;
 
+    console.log("data", data);
+
     document.getElementById('avatar').src = `https://goose.itstep.click/images/100_${data.image}`;
     document.getElementById('name').value = data.title;
-    document.getElementById('priority').value = data.priority;
+    document.getElementById('ttt').value = data.priority;
     document.getElementById('slug').value = data.urlSlug;
-    console.log("Дані", document.getElementById('priority').value);
+    console.log("Дані", document.getElementById('ttt').value);
     console.log("Дані2", data.priority);
     hide_loading()
 });
