@@ -311,3 +311,13 @@ button{
         box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
     }
 
+
+
+    .StyleForColumns{
+        width:120px;
+        text-align:center;
+    }
+
+    .StyleForTitle{
+        text-align:center;
+    }

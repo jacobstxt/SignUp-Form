@@ -19,25 +19,25 @@
     <script>loadDOM('/partials/asideAdminPanel.html');</script>
     <script>loadDOM('/partials/NavBar.html');</script>
 
-    <table style="margin:100px 50px 10px 300px" class="w-full bg-white mt-10 text-sm text-left rtl:text-right text-black-500">
+    <table style="margin:100px 50px 10px 300px;width:1200px" class="w-full bg-white mt-10 text-sm text-left rtl:text-right text-black-500">
         <thead class="text-xs text-black-700 uppercase bg-white-50">
             <tr>
                 <th scope="col" class="py-3">
                     <span class="sr-only">Фото</span>
                 </th>
-                <th scope="col" style="width: 120px; text-align: center;" class="py-3">
+                <th scope="col" class="StyleForColumns py-3">
                     Назва
                 </th>
-                <th scope="col" style="width: 120px; text-align: center;" class="px-6 py-3">
+                <th scope="col"  class="StyleForColumns py-3">
                     Категорія
                 </th>
-                <th scope="col" style="width:120px; text-align:center;" class="px-6 py-3">
+                <th scope="col"  class="StyleForColumns  py-3">
                     Пріорітет
                 </th>
-                <th scope="col" style="width: 320px; text-align: center;" class="py-3">
+                <th scope="col"  class="StyleForColumns py-3">
                     Опис
                 </th>
-                <th scope="col" style="width: 120px; text-align: center;" class="px-6 py-3">
+                <th scope="col"  class="StyleForColumns  py-3">
                     Ціна
                 </th>
             </tr>
@@ -63,32 +63,38 @@
             data.forEach(item => {
                 listProducts.innerHTML += `
                                         <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
-                                            <td style="width:200px" class="p-4">
-                                                <img id="avatar" src="https://goose.itstep.click/images/200_${item.images[1]}" class="" alt="Apple Watch">
+                                            <td style="width:200px;" class="p-4">
+                                            <img id="avatar" src="${item.images && item.images[1] ? `https://goose.itstep.click/images/200_${item.images[1]}` : '/images/no-product.png'}" alt="Product Image">
                                             </td>
-                                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                            <td class="StyleForTitle px-6 py-4 font-semibold text-gray-900">
                                                 ${item.name}
                                             </td>
-                                            <td style="text-align:center" class="px-6 py-4 font-semibold text-gray-900">
+                                            <td  class="StyleForTitle px-6 py-4 font-semibold text-gray-900">
                                                 ${item.categoryName}
                                             </td>
 
-                                            <td style="text-align:center" class="px-6 py-4 font-semibold text-gray-900">
+                                            <td  class="StyleForTitle px-6 py-4 font-semibold text-gray-900">
                                                 ${item.priority}
                                             </td>
-                                            <td  class="px-6 py-4 font-semibold text-gray-900">
+                                            <td style="width:250px"  class="StyleForTitle px-6 py-4 font-semibold text-gray-900">
                                                  ${item.description}
                                             </td>
-                                              <td style="text-align:center" class="px-6 py-4 font-semibold text-gray-900">
-                                                 ${item.price}
+                                              <td  class="StyleForTitle px-6 py-4 font-semibold text-gray-900">
+                                                 ${item.price} $
                                               </td>
-                                            <td class="px-2 py-4">
+                                            <td class="px-2 py-4 text-center">
+                                             <div class="flex justify-center gap-4">
+
                                                 <a href="/partials/editCategory.html?id=${item.id}" class="font-medium text-blue-600  hover:underline">
                                                     <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i>
                                                 </a>
+
                                                 <a href="#" data-delete="${item.id}" data-delete-name="${item.title}" class="font-medium text-red-600  hover:underline">
                                                     <i class="fa fa-2x fa-times" aria-hidden="true"></i>
                                                 </a>
+
+                                             </div>
+
                                             </td>
                                         </tr>
                                 `;
