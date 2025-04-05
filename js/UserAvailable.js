@@ -35,7 +35,7 @@ function ChangeMenu() {
             <!-- Кнопка профілю -->
             <div class="relative ml-20">
                 <button id="accountButton" type="button" class="flex items-center bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 w-12 h-12">
-                    <img id="accountImage" class="rounded-full w-12 h-12 object-cover" src="https://goose.itstep.click/images/${user.image}" alt="user photo">
+                    <img id="accountImage" class="rounded-full w-12 h-12 object-cover" src="${window.API_BASE_URL}/images/100_${user.image}" alt="user photo">
                 </button>
 
                 <!-- Випадаюче меню -->

@@ -156,7 +156,7 @@
                 console.log("Category",newCategory);
                 show_loading();
                 //Посилаю запит на сервер де передаю категорію
-                axios.post("https://goose.itstep.click/api/categories/add", newCategory)
+                axios.post(`${window.API_BASE_URL}/api/categories/add`, newCategory)
                 .then(resp => {
                     console.log("res", resp);
                     hide_loading();

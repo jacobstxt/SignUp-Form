@@ -119,7 +119,7 @@
             try {
                 show_loading();
                 const query = Qs.stringify(search);
-                const response = await axios.get(`https://goose.itstep.click/api/Categories/search?${query}`, {
+                const response = await axios.get(`${window.API_BASE_URL}/api/Categories/search?${query}`, {
                     headers: {
                         'Accept': '*/*'
                     }
@@ -136,7 +136,7 @@
                     listCategories.innerHTML += `
                                                         <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
                                                             <td style="width:150px" class="p-4">
-                                                                <img id="avatar" src="https://goose.itstep.click/images/200_${item.image}" class="" alt="Apple Watch">
+                                                                <img id="avatar" src="${window.API_BASE_URL}/images/200_${item.image}" class="" alt="Apple Watch">
                                                             </td>
                                                             <td class="StyleForTitle  font-semibold text-gray-900">
                                                                 ${item.title}

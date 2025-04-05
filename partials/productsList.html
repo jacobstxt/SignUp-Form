@@ -50,7 +50,7 @@
 
     <script>
         async function FetchProducts() {
-            const response = await axios.get(`https://goose.itstep.click/api/Products/list`, {
+            const response = await axios.get(`${window.API_BASE_URL}/api/Products/list`, {
                 headers: {
                     'accept': '*/*'
                 }
@@ -64,7 +64,7 @@
                 listProducts.innerHTML += `
                                         <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
                                             <td style="width:200px;" class="p-4">
-                                            <img id="avatar" src="${item.images && item.images[1] ? `https://goose.itstep.click/images/200_${item.images[1]}` : '/images/no-product.png'}" alt="Product Image">
+                                            <img id="avatar" src="${item.images && item.images[1] ? `${window.API_BASE_URL}/images/200_${item.images[1]}` : '/images/no-product.png'}" alt="Product Image">
                                             </td>
                                             <td class="StyleForTitle px-6 py-4 font-semibold text-gray-900">
                                                 ${item.name}
@@ -85,7 +85,7 @@
                                             <td class="px-2 py-4 text-center">
                                              <div class="flex justify-center gap-4">
 
-                                                <a href="/partials/editCategory.html?id=${item.id}" class="font-medium text-blue-600  hover:underline">
+                                                <a href="#" class="font-medium text-blue-600  hover:underline">
                                                     <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i>
                                                 </a>
 
