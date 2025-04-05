@@ -284,3 +284,30 @@ button{
         outline: none;
         box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
     }
+
+
+
+.btn-addStyle {
+    background-color: #123c91;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+    width:200px;
+    height:40px;
+}
+
+    .btn-addStyle:hover {
+        background-color: #155bb5;
+        transform: translateY(-2px);
+    }
+
+    .btn-addStyle:active {
+        background-color: #123c91;
+        transform: translateY(1px);
+    }
+
+    .btn-addStyle:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+    }
+

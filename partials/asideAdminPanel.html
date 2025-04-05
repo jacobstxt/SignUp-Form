@@ -13,7 +13,10 @@
                 </button>
                 <ul id="dropdown-pages" class="hidden pl-6 space-y-1">
                     <li>
-                        <button data-modal-target="AddCategoryModal" data-modal-toggle="AddCategoryModal" id="addCategoryBT" class="block p-2 rounded-lg hover:bg-gray-200">Add</button>
+                        <a data-modal-target="AddCategoryModal" data-modal-toggle="AddCategoryModal" id="addCategoryBT" class="block p-2 rounded-lg hover:bg-gray-200">Add category</a>
+                    </li>
+                    <li>
+                        <a href="/partials/editCategory.html" class="block p-2 rounded-lg hover:bg-gray-200">Edit category</a>
                     </li>
                 </ul>
             </li>
@@ -22,14 +25,14 @@
             <li>
                 <button type="button" style="width: 230px; height: 44px" class="flex justify-between p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-200" aria-controls="dropdown-sales" data-collapse-toggle="dropdown-sales">
                     <img src="/images/itemsIcon.png" aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" />
-                    <span class="flex-1 ml-3 text-left whitespace-nowrap">Items</span>
+                    <span class="flex-1 ml-3 text-left whitespace-nowrap">Products</span>
                     <svg aria-hidden="true" class="w-6 h-6" fill="black" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                     </svg>
                 </button>
                 <ul id="dropdown-sales" class="hidden pl-6 space-y-1">
-                    <li> <button  class="block p-2 rounded-lg hover:bg-gray-200">Add</button></li>
-                    <li> <button  class="block p-2 rounded-lg hover:bg-gray-200">Edit</button></li>
+                    <li> <a href="/partials/addProduct.html"  class="block p-2 rounded-lg hover:bg-gray-200">Add product</a></li>
+                    <li> <a  class="block p-2 rounded-lg hover:bg-gray-200">Edit product</a></li>
                 </ul>
             </li>
             <li>

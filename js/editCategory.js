@@ -23,10 +23,10 @@ categoryForm.onsubmit = (e) => {
         priority: document.getElementById("Prioritet").value
     };
     const url = `https://goose.itstep.click/api/Categories/edit?${data}`;
-
+    show_loading();
     xhr.open("PUT", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
-
+    hide_loading();
     let promise = new Promise(function (resolve, reject) {
         pbContainer.hidden = false;
         let i = 0;
@@ -79,10 +79,8 @@ function ClearErrors() {
     imageError.hidden = true;
 }
 
-show_loading();
 
 window.addEventListener('load', async () => {
-
     const id = new URLSearchParams(window.location.search).get('id') || null;
     console.log("id", id);
 
@@ -102,5 +100,4 @@ window.addEventListener('load', async () => {
     document.getElementById('name').value = data.title;
     document.getElementById('Prioritet').value = data.priority;
     document.getElementById('slug').value = data.urlSlug;
-    hide_loading()
 });
