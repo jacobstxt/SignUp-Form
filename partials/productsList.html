@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.14.0/qs.min.js" integrity="sha512-6yLIYbXqyvjSDYNO1pgBRjwWPBw66kMOb+sHqrvn457+iJiret0PeHzUlpLKHH0fYzX9bxGtPDqQ84xKrhEYSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+    <link href="/css/cropper.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <title>Products List</title>
+</head>
+<body>
+    <script src="/js/site.js"></script>
+    <script src="/js/cropper.min.js"></script>
+    <script>loadDOM('/partials/loading.html')</script>
+    <script>loadDOM('/partials/asideAdminPanel.html');</script>
+    <script>loadDOM('/partials/NavBar.html');</script>
+
+    <table style="margin:100px 50px 10px 300px" class="w-full bg-white mt-10 text-sm text-left rtl:text-right text-black-500">
+        <thead class="text-xs text-black-700 uppercase bg-white-50">
+            <tr>
+                <th scope="col" class="py-3">
+                    <span class="sr-only">Фото</span>
+                </th>
+                <th scope="col" style="width: 120px; text-align: center;" class="py-3">
+                    Назва
+                </th>
+                <th scope="col" style="width: 120px; text-align: center;" class="px-6 py-3">
+                    Категорія
+                </th>
+                <th scope="col" style="width:120px; text-align:center;" class="px-6 py-3">
+                    Пріорітет
+                </th>
+                <th scope="col" style="width: 320px; text-align: center;" class="py-3">
+                    Опис
+                </th>
+                <th scope="col" style="width: 120px; text-align: center;" class="px-6 py-3">
+                    Ціна
+                </th>
+            </tr>
+        </thead>
+        <tbody id="listProducts">
+
+        </tbody>
+
+    </table>
+
+    <script>
+        async function FetchProducts() {
+            const response = await axios.get(`https://goose.itstep.click/api/Products/list`, {
+                headers: {
+                    'accept': '*/*'
+                }
+            });
+            const { data } = response;
+            console.log("server result", data);
+
+            const listProducts = document.getElementById("listProducts");
+            listProducts.innerHTML = "";
+            data.forEach(item => {
+                listProducts.innerHTML += `
+                                        <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
+                                            <td style="width:200px" class="p-4">
+                                                <img id="avatar" src="https://goose.itstep.click/images/200_${item.images[1]}" class="" alt="Apple Watch">
+                                            </td>
+                                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                                ${item.name}
+                                            </td>
+                                            <td style="text-align:center" class="px-6 py-4 font-semibold text-gray-900">
+                                                ${item.categoryName}
+                                            </td>
+
+                                            <td style="text-align:center" class="px-6 py-4 font-semibold text-gray-900">
+                                                ${item.priority}
+                                            </td>
+                                            <td  class="px-6 py-4 font-semibold text-gray-900">
+                                                 ${item.description}
+                                            </td>
+                                              <td style="text-align:center" class="px-6 py-4 font-semibold text-gray-900">
+                                                 ${item.price}
+                                              </td>
+                                            <td class="px-2 py-4">
+                                                <a href="/partials/editCategory.html?id=${item.id}" class="font-medium text-blue-600  hover:underline">
+                                                    <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="#" data-delete="${item.id}" data-delete-name="${item.title}" class="font-medium text-red-600  hover:underline">
+                                                    <i class="fa fa-2x fa-times" aria-hidden="true"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                `;
+            });
+        }
+
+
+        FetchProducts();
+    </script>
+
+</body>
+</html>
