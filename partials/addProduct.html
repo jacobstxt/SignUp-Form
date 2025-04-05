@@ -25,13 +25,13 @@
                 <div style="margin-top:55px;margin-left:150px" class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-4xl animate-fade-in-up">
                     <form class="grid grid-cols-2 gap-6" id="createProductForm">
                         <div class="col-span-2">
-                            <label for="title" class="label-style block text-sm font-medium text-gray-700">Title</label>
-                            <input id="title" type="text" placeholder="Enter product title" class="input-style">
+                            <label for="AddProductTitle" class="label-style block text-sm font-medium text-gray-700">Title</label>
+                            <input id="AddProductTitle" type="text" placeholder="Enter product title" class="input-style">
                         </div>
 
                         <div>
-                            <label for="priority" class="label-style block mb-2 text-sm font-medium text-gray-900 ">Priority</label>
-                            <input type="number" name="priority" id="priority" class="input-style" placeholder="1" required="">
+                            <label for="AddProductPriority" class="label-style block mb-2 text-sm font-medium text-gray-900 ">Priority</label>
+                            <input type="number" name="AddProductPriority" id="AddProductPriority" class="input-style" placeholder="1" required="">
                         </div>
 
                         <div>
@@ -69,7 +69,7 @@
             </div>
             <input id="imageInput" type="file" class="hidden" multiple accept="image/*" />
         </label>-->
-                            <div id="imagesList" class="flex items-center justify-start overflow-x-auto space-x-2 max-w-full py-2" style="max-width:850px">
+                            <div id="imagesList" class="flex  justify-start overflow-x-auto space-x-2 max-w-full py-2" style="max-width:850px">
 
                             </div>
                         </div>
@@ -200,8 +200,8 @@
             e.preventDefault();
             console.log("Working submit form");
             const categoryId = document.getElementById('category').value;
-            const priority = document.getElementById('priority').value;
-            const name = document.getElementById('title').value;
+            const priority = document.getElementById('AddProductPriority').value;
+            const name = document.getElementById('AddProductTitle').value;
             const price = document.getElementById('price').value;
             var description = tinymce.activeEditor.getContent();
             var request = {
@@ -220,7 +220,7 @@
                 }
             });
             console.log(response.data);
-            location.href = "/pages/admin/adminPanel";
+            location.href = "/pages/admin/AdminPanel.html";
         });
     </script>
 
