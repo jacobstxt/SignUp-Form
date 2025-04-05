@@ -22,7 +22,7 @@
     <div id="addCategoryPage">
         <div style="height:500px" class="relative  rounded-lg shadow-sm">
             <div class="flex items-center justify-center   py-30">
-                <div style="margin-top:55px;margin-left:150px" class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-4xl animate-fade-in-up">
+                <div style="margin-top:55px;margin-left:250px;margin-bottom:20px;" class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-4xl animate-fade-in-up">
                     <form class="grid grid-cols-2 gap-6" id="createProductForm">
                         <div class="col-span-2">
                             <label for="AddProductTitle" class="label-style block text-sm font-medium text-gray-700">Title</label>
@@ -61,15 +61,7 @@
                         </div>
 
                         <div class="flex items-center justify-center col-span-2">
-                            <!--<label for="imageInput" class="flex flex-col items-center justify-center w-24 h-24 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
-            <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 -3 20 16">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                </svg>
-            </div>
-            <input id="imageInput" type="file" class="hidden" multiple accept="image/*" />
-        </label>-->
-                            <div id="imagesList" class="flex  justify-start overflow-x-auto space-x-2 max-w-full py-2" style="max-width:850px">
+                            <div id="imagesList" class="flex justify-center overflow-x-auto space-x-2 max-w-full py-2" style="max-width:850px">
 
                             </div>
                         </div>
@@ -196,7 +188,7 @@
 
     <script>
         var createProductForm = document.getElementById('createProductForm');
-        createProductForm.addEventListener("submit", (e) => {
+        createProductForm.addEventListener("submit",async (e) => {
             e.preventDefault();
             console.log("Working submit form");
             const categoryId = document.getElementById('category').value;
@@ -213,7 +205,7 @@
                 ids
             }
             console.log("Content:", request);
-            let response = axios.post('https://goose.itstep.click/api/Products/add', request, {
+            let response = await axios.post('https://goose.itstep.click/api/Products/add', request, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': '*/*'
@@ -222,6 +214,7 @@
             console.log(response.data);
             location.href = "/pages/admin/AdminPanel.html";
         });
+
     </script>
 
 </body>
