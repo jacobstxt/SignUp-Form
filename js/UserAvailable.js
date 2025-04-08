@@ -19,18 +19,17 @@ function ChangeMenu() {
     if (typeof user !== "undefined" && user) {
 
         if (user.roles == "user") {
-            userNav.innerHTML = `
-                     
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-6">
+            userNav.innerHTML = `                
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6  h-14">
         <!-- Логотип -->
-        <a href="#" class="text-white text-3xl font-bold tracking-wide flex items-center space-x-3 hover:scale-105 transform transition duration-300">
+        <a href="#" class="text-black text-2xl font-bold tracking-wide flex items-center space-x-3">
             <img src="/images/icon-img.png" class="h-12 rounded-full shadow-md" alt="Logo">
               <span class="text-black-500">SignUp Form</span>
         </a>
 
         <div class="flex items-center justify-end space-x-6">
             <!-- Ім'я користувача -->
-            <span class="text-white text-lg font-semibold">${user.name}</span>
+            <span class="text-black text-lg font-semibold">${user.name}</span>
 
             <!-- Кнопка профілю -->
             <div class="relative ml-20">
@@ -39,13 +38,13 @@ function ChangeMenu() {
                 </button>
 
                 <!-- Випадаюче меню -->
-                <div id="dropdownMenu" class="hidden absolute right-0 bg-gray-800 text-white rounded shadow-lg mt-2 p-2 w-40 z-10">
+                <div id="dropdownMenu" class="hidden absolute right-0 bg-white text-black rounded shadow-lg mt-2 p-2 w-40 z-10">
                     <ul class="w-full">
                         <li>
-                            <a href="/Profile.html" class="block w-full text-left px-4 py-2 hover:bg-gray-700 rounded">Профіль</a>
+                            <a href="/Profile.html" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Профіль</a>
                         </li>
                         <li>
-                            <button onclick="logout()" class="block w-full text-left px-4 py-2 hover:bg-gray-700 rounded">Вийти</button>
+                            <button onclick="logout()" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Вийти</button>
                         </li>
                     </ul>
                 </div>
@@ -76,10 +75,10 @@ function ChangeMenu() {
 
         }
         else if (user.roles == "admin") {       
-                userNav.innerHTML = `
-         <div class="max-w-7xl mx-auto flex justify-between items-center px-6">
+            userNav.innerHTML = `
+         <div class="max-w-7xl mx-auto flex justify-between items-center px-6 h-14">
         <!--Логотип-->
-        <a href="#" class="text-black text-3xl font-bold tracking-wide flex items-center space-x-3 hover:scale-105 transform transition duration-300">
+        <a href="#" class="text-black text-2xl font-bold tracking-wide flex items-center space-x-3">
             <img src="/images/icon-img.png" class="h-12 rounded-full shadow-md" alt="Logo">
             <span class="text-black-500">SignUp Form</span>
         </a>
@@ -95,16 +94,16 @@ function ChangeMenu() {
                 </button>
 
                 <!-- Випадаюче меню -->
-                <div id="dropdownMenu" class="hidden absolute right-0 bg-gray-800 text-white rounded shadow-lg mt-2 p-2 w-40 z-10">
+                <div id="dropdownMenu" class="hidden absolute right-0 bg-white text-black rounded shadow-lg mt-2 p-2 w-40 z-10">
                     <ul class="w-full">
                         <li>
-                            <a href="/Profile.html" class="block w-full text-left px-4 py-2 hover:bg-gray-700 rounded">Профіль</a>
+                            <a href="/Profile.html" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Профіль</a>
                         </li>
                         <li>
-                            <button onclick="logout()" class="block w-full text-left px-4 py-2 hover:bg-gray-700 rounded">Вийти</button>
+                            <button onclick="logout()" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Вийти</button>
                         </li>
                            <li>
-                            <a href="pages/admin/AdminPanel.html" class="block w-full text-left px-4 py-2 hover:bg-gray-700 rounded">Адмін панель</a>
+                            <a href="pages/admin/AdminPanel.html" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Адмін панель</a>
                         </li>
                     </ul>
                 </div>
@@ -140,9 +139,9 @@ function ChangeMenu() {
 
     else {
         userNav.innerHTML = `
-                       <div class="max-w-7xl mx-auto flex justify-between items-center px-6">
+                       <div class="max-w-7xl mx-auto flex justify-between items-center px-6 h-14">
                 <!-- Логотип -->
-                <a href="#" class="text-black text-3xl font-bold tracking-wide flex items-center space-x-3 hover:scale-105 transform transition duration-300">
+                <a href="#" class="text-black text-2xl font-bold tracking-wide flex items-center space-x-3">
                     <img src="/images/icon-img.png" class="h-12 rounded-full shadow-md" alt="Logo">
                     <span class="text-black-500">SignUp Form</span>
                 </a>
