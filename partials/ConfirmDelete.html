@@ -42,12 +42,11 @@
                         'Content-Type': 'application/json'
                     }
                 }).then(res => {
-                    if (res.ok) {
-                        console.log("Видалення успішне");
-                        window.location.href = "/pages/admin/AdminPanel.html"; 
-                    } else {
-                        console.log("Помилка видалення");
-                    }
+                    console.log("Видалення успішне");
+                    window.location.href = "/pages/admin/AdminPanel.html";
+                }).catch(error => {
+                    console.error("Помилка видалення", error.response?.data || error.message);
+                    alert("Не вдалося видалити категорію. Можливо, вона містить товари.");
                 });
             });
 
