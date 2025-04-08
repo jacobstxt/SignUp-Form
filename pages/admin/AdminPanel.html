@@ -153,7 +153,7 @@
                                                                 <a href="/partials/editCategory.html?id=${item.id}" class="font-medium text-blue-600  hover:underline">
                                                                     <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i>
                                                                 </a>
-                                                                <a href="#" data-delete="${item.id}" data-delete-name="${item.title}" class="font-medium text-red-600  hover:underline">
+                                                                <a href="/partials/ConfirmDelete.html?id=${item.id}&title=${encodeURIComponent(item.title)}"  class="font-medium text-red-600  hover:underline">
                                                                     <i class="fa fa-2x fa-times" aria-hidden="true"></i>
                                                                 </a>
                                                                 </div>
@@ -163,7 +163,7 @@
                 });
 
                 window.scrollTo(0, 0);
-                deleteDataItem();
+     /*           deleteDataItem();*/
                 searchDataPage();
 
             } catch (error) {
@@ -173,18 +173,35 @@
 
         fetchCategories();
 
-        function deleteDataItem() {
-            document.querySelectorAll('[data-delete]').forEach(element => {
-                element.addEventListener('click', event => {
-                    event.preventDefault(); // Запобігаємо переходу за посиланням
-                    console.log("event.target", event.target);
-                    const link = event.target.closest('a[data-delete]');
-                    const deleteId = link.getAttribute('data-delete'); // Отримуємо значення data-page
-                    const deleteName = link.getAttribute('data-delete-name'); // Отримуємо значення data-page
-                    console.log('Delete By Id:', deleteId, deleteName);
-                });
-            });
-        }
+        //function deleteDataItem() {
+        //    document.querySelectorAll('[data-delete]').forEach(link => {
+        //        link.addEventListener('click', event => {
+        //            event.preventDefault(); // Запобігаємо переходу за посиланням
+        //            console.log("event.target", event.target);
+        //            const deleteId = link.getAttribute('data-delete'); // Отримуємо значення data-page
+        //            const deleteName = link.getAttribute('data-delete-name'); // Отримуємо значення data-page
+        //            console.log('Delete By Id:', deleteId, deleteName);
+
+
+        //            const url = `${window.API_BASE_URL}/api/Categories/delete/${deleteId}`;
+        //            const xhr = new XMLHttpRequest();
+        //            xhr.open("PUT", url, true);
+        //            xhr.setRequestHeader("Content-Type", "application/json");
+
+        //            xhr.onreadystatechange = function () {
+        //                if (xhr.readyState === 4) {
+        //                    if (xhr.status === 200) {
+        //                        console.log("Видалено успішно!");
+        //                        link.closest('tr')?.remove();
+        //                    } else {
+        //                        console.error("Помилка видалення:", xhr.responseText);
+        //                    }
+        //                }
+        //            };
+        //            xhr.send();
+        //        });
+        //    });
+        //}
 
 
         function searchDataPage() {
