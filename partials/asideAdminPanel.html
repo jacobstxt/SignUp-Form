@@ -11,12 +11,13 @@
                     <span class="flex-1 ml-3 text-left whitespace-nowrap">Categories</span>
                     <svg aria-hidden="true" class="w-6 h-6" fill="black" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 </button>
-                <ul id="dropdown-pages" class="hidden pl-6 space-y-1">
+                <ul id="dropdown-pages" class="hidden pl-
+                    6 space-y-1">
                     <li>
                         <a data-modal-target="AddCategoryModal" data-modal-toggle="AddCategoryModal" id="addCategoryBT" class="block p-2 rounded-lg hover:bg-gray-200">Add category</a>
                     </li>
                     <li>
-                        <a href="/partials/editCategory.html" class="block p-2 rounded-lg hover:bg-gray-200">Edit category</a>
+                        <a href="/pages/admin/AdminPanel.html"  class="block p-2 rounded-lg hover:bg-gray-200">Categories list</a>
                     </li>
                 </ul>
             </li>
@@ -32,7 +33,6 @@
                 </button>
                 <ul id="dropdown-sales" class="hidden pl-6 space-y-1">
                     <li> <a href="/partials/addProduct.html"  class="block p-2 rounded-lg hover:bg-gray-200">Add product</a></li>
-                    <li> <a  class="block p-2 rounded-lg hover:bg-gray-200">Edit product</a></li>
                     <li> <a href="/partials/productsList.html" class="block p-2 rounded-lg hover:bg-gray-200">Products list</a></li>
                 </ul>
             </li>
@@ -44,7 +44,7 @@
             </li>
         </ul>
 
-        <div class="border-t border-gray-700 mt-5 pt-5">
+        <div style="margin-top:230px" class="border-t border-gray-700 pt-5">
             <button id="logoutBtn" type="button" style="width:230px;height:44px" class="flex justify-between p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-600  rounded-lg" aria-controls="dropdown-sales" data-collapse-toggle="dropdown-sales">
                 <img src="/images/logout.png" aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" />
                 <span class="flex-1 ml-3 text-left whitespace-nowrap">Logout</span>

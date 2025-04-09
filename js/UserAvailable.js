@@ -41,10 +41,10 @@ function ChangeMenu() {
                 <div id="dropdownMenu" class="hidden absolute right-0 bg-white text-black rounded shadow-lg mt-2 p-2 w-40 z-10">
                     <ul class="w-full">
                         <li>
-                            <a href="/Profile.html" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Профіль</a>
+                            <a href="/Profile.html" style="cursor:pointer" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Профіль</a>
                         </li>
                         <li>
-                            <button onclick="logout()" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Вийти</button>
+                            <a onclick="logout()" style="cursor:pointer" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Вийти</a>
                         </li>
                     </ul>
                 </div>
@@ -97,13 +97,13 @@ function ChangeMenu() {
                 <div id="dropdownMenu" class="hidden absolute right-0 bg-white text-black rounded shadow-lg mt-2 p-2 w-40 z-10">
                     <ul class="w-full">
                         <li>
-                            <a href="/Profile.html" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Профіль</a>
+                            <a onclick="window.location.href='/Profile.html'" style="cursor:pointer" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Профіль</a>
                         </li>
                         <li>
-                            <button onclick="logout()" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Вийти</button>
+                            <a onclick="logout()" style="cursor:pointer" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Вийти</a>
                         </li>
                            <li>
-                            <a href="pages/admin/AdminPanel.html" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Адмін панель</a>
+                            <a onclick="window.location.href='/pages/admin/AdminPanel.html'" style="cursor:pointer" class="block w-full text-left px-4 py-2 hover:bg-gray-300 rounded">Адмін панель</a>
                         </li>
                     </ul>
                 </div>
